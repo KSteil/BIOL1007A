@@ -1,0 +1,28 @@
+---
+title: "Assignment 2"
+author: "Steil"
+date: "2023-01-10"
+output: html_document
+---
+
+# ME!  
+I'm Steil (they/them). A junior conservation biology major at Middlebury College.  
+
+image: ![](IMG_7851.JPG)
+
+As seen in the photo, I enjoy a good snack or two.  
+My other hobbies:  
+* Video games  
+* Reading  
+* Making bracelets  
+
+
+A 3x5 table
+A few sentences that use bold and italic formatting
+A bulleted list
+A numbered list
+A link to a website
+Multiple sized headers.
+A superscript and subscript.
+An equation
+Plain text within fencing
