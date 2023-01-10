@@ -1,0 +1,53 @@
+---
+title: "Assignment 1"
+author: "Steil"
+date: "2023-01-10"
+output: html_document
+---
+
+Git and Github   
+Version control: keep (& restoring) past version of files  
+	-programmers collaboration  
+Files:  
+Good for version control:   
+Plain text (.txt)  
+.R Script  
+Markdown (.md)(.Rmd)  
+Html  
+LaTex  
+
+
+Git- local computer  
+GitHub- free remote website for public storage of projects  
+GitHub repository  
+‘Cloning’ to the local computer  
+
+Changes to files  
+Adding new files  
+Alter existing files  
+Delete existing files  
+
+‘Commit’ (noun) - snapshot of the current file system  
+To commit (verb) - saving (recording) changes to local repository  
+
+Changing files ←→ commit changes  
+
+Pushing - transfer local changes to github “transfer local repository to github”  
+Pull- brings down the github repo to your computer  
+
+
+git status  
+git add -A  
+git commit -am “note”  
+git push  
+
+
+R Project 
+Divides work into multiple contexts  
+Working directory  
+workspace  
+
+
+'## This is where I can put anything'
+
+## This is where I can put anything
