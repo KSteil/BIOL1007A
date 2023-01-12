@@ -47,4 +47,3 @@ $a^{2} + b^{2} = c^{2}$
 Occasionally, I incorporate a trademark into my speech, saying something like 'I love proc food^tm^.' Rarely would I announce my use of a subscript ~but~ I do find them useful.  
 
 ```Cat!``` 
-Plain text within fencing
