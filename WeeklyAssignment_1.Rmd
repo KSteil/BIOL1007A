@@ -11,11 +11,15 @@ Knit your Rmd file to html and post a link to your Guide on your portfolio page.
 
 First you'll need to download git to your computer. I have a windows computer and found this to be fairly straightforward following the link [here](https://git-scm.com/downloads). Macs, however, require a little bit more troubleshooting, requiring [xcode](https://developer.apple.com/xcode/) to download [homebrew](https://git-scm.com/downloads) to download git. 
 
-Second, you'll need to generate a personal access token to link git and R. 
+Second, you'll need to generate a personal access token to link git and R. Once in the settings of your GitHub account, scroll to the bottom on the left and go the 'developer settings' tab. Generate a new 'classic' token and click on the first 'repo' box. Copy the code.
 
-Once R and git are linked, then you can start to actually build a web page. You'll need to create and r markdown file named 'index' that will serve as the pages main hub.
+You'll have to install a 'credentials' package in R to link them. You can do this using the code line install.packages("credentials") in the console. 
 
-You'll need to then 'push' the change through into git. To do this, go into the terminal and add the changes. You should use the command 'git add -A' to add all the changes to the commit. Use 'git commit -am [message]' to commit the changes and briefly explain what changes were made. The final command is 'git push'.
+**
+
+Once R and git are linked, then you can start to actually build a web page. You'll need to create and r markdown file named 'index' that will serve as the pages main hub. The default output should be HTML.
+
+You'll need to then 'push' the change through into git. To do this, go into the terminal and add the changes. You should use the command 'git add -A' to add all the changes to the commit. Use 'git commit -am "message"' to commit the changes and briefly explain what changes were made. The final command is 'git push'.
 
 'git status' will tell you where the files and changes are.
 

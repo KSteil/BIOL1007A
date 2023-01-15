@@ -369,14 +369,20 @@ computer and found this to be fairly straightforward following the link
 <a href="https://git-scm.com/downloads">here</a>. Macs, however, require
 a little bit more troubleshooting, requiring <a href="https://developer.apple.com/xcode/">xcode</a> to download <a href="https://git-scm.com/downloads">homebrew</a> to download git.</p>
 <p>Second, you’ll need to generate a personal access token to link git
-and R.</p>
+and R. Once in the settings of your GitHub account, scroll to the bottom
+on the left and go the ‘developer settings’ tab. Generate a new
+‘classic’ token and click on the first ‘repo’ box. Copy the code.</p>
+<p>You’ll have to install a ‘credentials’ package in R to link them. You
+can do this using the code line install.packages(“credentials”) in the
+console.</p>
+<p>**</p>
 <p>Once R and git are linked, then you can start to actually build a web
 page. You’ll need to create and r markdown file named ‘index’ that will
-serve as the pages main hub.</p>
+serve as the pages main hub. The default output should be HTML.</p>
 <p>You’ll need to then ‘push’ the change through into git. To do this,
 go into the terminal and add the changes. You should use the command
 ‘git add -A’ to add all the changes to the commit. Use ‘git commit -am
-[message]’ to commit the changes and briefly explain what changes were
+“message”’ to commit the changes and briefly explain what changes were
 made. The final command is ‘git push’.</p>
 <p>‘git status’ will tell you where the files and changes are.</p>
 <p>Finally, you’ll want to go into the settings of your repository to
