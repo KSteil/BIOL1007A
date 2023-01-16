@@ -373,22 +373,31 @@ and R. Once in the settings of your GitHub account, scroll to the bottom
 on the left and go the ‘developer settings’ tab. Generate a new
 ‘classic’ token and click on the first ‘repo’ box. Copy the code.</p>
 <p>You’ll have to install a ‘credentials’ package in R to link them. You
-can do this using the code line install.packages(“credentials”) in the
-console.</p>
-<p>**</p>
+can do this using the code line
+<code>install.packages(&quot;credentials&quot;)</code> in the console.</p>
+<p>You can use the following code to link R and Git.<br />
+<code>git config --global user.email &quot;put github email here&quot;</code></p>
+<p><code>git config --global user.name &quot;put your name here&quot;</code></p>
+<p><code>credentials::set_github_pat(&quot;put PAT here&quot;)</code></p>
 <p>Once R and git are linked, then you can start to actually build a web
 page. You’ll need to create and r markdown file named ‘index’ that will
 serve as the pages main hub. The default output should be HTML.</p>
+<p>Once you’ve created something you’re happy with, click ‘knit’ to view
+it as an HTML. This will update the HTML file, which is necessary for
+creating the actual webpage.</p>
 <p>You’ll need to then ‘push’ the change through into git. To do this,
 go into the terminal and add the changes. You should use the command
-‘git add -A’ to add all the changes to the commit. Use ‘git commit -am
-“message”’ to commit the changes and briefly explain what changes were
-made. The final command is ‘git push’.</p>
-<p>‘git status’ will tell you where the files and changes are.</p>
+<code>git add -A</code> to add all the changes to the commit. Use
+<code>git commit -am &quot;message&quot;</code> to commit the changes and briefly
+explain what changes were made. The final command is
+<code>git push</code>.</p>
+<p><code>git status</code> will tell you where the files and changes
+are.</p>
 <p>Finally, you’ll want to go into the settings of your repository to
 upload the web page. Under “Code and automation,” there’s a section
 called ‘Pages.’ In that section, change the Branch from ‘none’ to
-‘main.’</p>
+‘main.’ After a few moments, your web page should be up and ready to
+go!</p>
 
 
 
