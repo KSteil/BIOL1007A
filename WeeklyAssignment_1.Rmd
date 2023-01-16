@@ -5,10 +5,6 @@ date: "2023-01-13"
 output: html_document
 ---
 
-A friend has asked you how to set up a GitHub web page in RStudio. Create an Rmarkdown file that explains the steps of setting one up and any troubleshooting advice you learned that could help them. Make as clear and helpful a document as you can, including any links, notes, or pictures that you deem appropriate.
-
-Knit your Rmd file to html and post a link to your Guide on your portfolio page.
-
 First you'll need to download git to your computer. I have a windows computer and found this to be fairly straightforward following the link [here](https://git-scm.com/downloads). Macs, however, require a little bit more troubleshooting, requiring [xcode](https://developer.apple.com/xcode/) to download [homebrew](https://git-scm.com/downloads) to download git. 
 
 Second, you'll need to generate a personal access token to link git and R. Once in the settings of your GitHub account, scroll to the bottom on the left and go the 'developer settings' tab. Generate a new 'classic' token and click on the first 'repo' box. Copy the code.
@@ -31,3 +27,5 @@ You'll need to then 'push' the change through into git. To do this, go into the 
 ```git status``` will tell you where the files and changes are.
 
 Finally, you'll want to go into the settings of your repository to upload the web page. Under "Code and automation," there's a section called 'Pages.' In that section, change the Branch from 'none' to 'main.' After a few moments, your web page should be up and ready to go!
+
+
