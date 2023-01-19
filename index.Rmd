@@ -13,6 +13,7 @@ output:
 [Assignment 1](Assignment_1.html)   
 [Assignment 2](Assignment_2.html)   
 [Assignment 3](Assignment_3.html)   
+[Assignment 4 & 5](Assignment_4_and_5.html)
 
 ## Weekly Assignments
 [Week 2](WeeklyAssignment_1.html)

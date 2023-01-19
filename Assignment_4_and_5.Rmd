@@ -1,0 +1,62 @@
+---
+title: "Assignment_4_and_5"
+author: "Steil"
+date: "2023-01-17"
+output: html_document
+---
+
+### Question 1
+```{r}
+n_dims <- floor(runif(1, 3, 10))
+varList <- c(1:n_dims^2)
+varList <- sample(varList)
+m= matrix(data=varList, nrow=n_dims)
+print(m)
+tm <- t(m)
+print(tm)
+
+##swapped rows and columns
+
+sum(tm[1,])
+mean(tm[1,])
+sum(tm[n_dims,])
+mean(tm[n_dims,])
+
+```
+
+
+### Assignment 5 Question 2
+
+```{r}
+my_matrix <- matrix(data=runif(16), nrow=4, ncol =4)
+my_logical <- (runif(100, 0, 1) > 0.5)
+my_letters <- sample(letters, 26)
+new_list <- list(my_matrix[2,2], my_logical[2], my_letters[2])
+lapply(new_list, typeof)
+
+new_vector <- unlist(new_list)
+typeof(new_vector)
+```
+### Question 3
+
+```{r}
+my_unifs <- (runif(26, 0, 10))
+my_letters <- sample(LETTERS)
+dFrame <- data.frame(my_unifs, my_letters)
+
+dFrame[sample(1:nrow(dFrame), 4), 1] <- NA
+
+dFrame[!complete.cases(dFrame),]
+dFrame <- dFrame[order(dFrame$my_letters),]
+mean(dFrame[,1], na.rm=TRUE)
+
+names(dFrame)[names(dFrame) == "my_letters"] <- "my_LETTERS"
+
+print(dFrame)
+
+
+
+
+```
+
+

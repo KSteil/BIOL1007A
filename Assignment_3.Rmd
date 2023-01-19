@@ -28,10 +28,10 @@ z <- c(seq(1, 8), seq(7, 1))
 print(z)
 
 
-z <- rep(x=1:5, c(1,2,3,4,5))
+z <- rep(x=1:5, c(1,2,3,4,5)) ##rep(1:5, 1:5)
   print(z)
 
-z <- rep(x=5:1, c(1,2,3,4,5))
+z <- rep(x=5:1, c(1,2,3,4,5)) ##rep(5:1, 1:5)
   print(z)
   
 ```
@@ -43,10 +43,12 @@ print(queue)
 queue[5] <- "serpent"
 print(queue)
 queue <- queue[!queue %in% c("sheep")]
+##queue <-queue[-1]
 print(queue)
-queue <- c("donkey", queue[1:4])
+queue <- c("donkey", queue[1:4]) #queue <- c("donkey", queue)
 print(queue)
 queue <- queue[!queue %in% c("serpent")]
+#queue <- queue[-5]
 print(queue)
 queue <- append(queue, "aphid", after = 3)
 print(queue)
