@@ -1,0 +1,57 @@
+---
+title: "Weekly Assignment 2"
+author: "Steil"
+date: "2023-01-19"
+output: html_document
+---
+
+### Question 1
+
+```{r}
+######################################
+# FUNCTION: newFunk
+# Input: means of the second column
+# Output: Returns a data frame with a 'type' and 'value' column and 50 rows.
+
+newFunk <- function(mean1 = 10, mean2 = 45){
+  control = runif(25)
+  treatment = runif(25)
+  Type = c(control, treatment)
+  data2 = rnorm(25, mean1, 1.5)
+  data3 = rnorm(25, mean2, 2)
+  Value = c(data2, data3)
+  dFrame<- data.frame(Type, Value)
+  return(dFrame)
+}
+
+output <- newFunk()
+head(output)
+
+
+stats <- summary(aov(Value ~ Type, data = output))
+print(stats)
+```
+
+
+
+### Question 2
+```{r}
+###########################  
+# Function: grilleMe
+# Input: data frame with two columns
+# Output: p-value of an ANOVA summary table
+
+
+grilleMe <- function(ddFrame = output){
+  yVar <- ddFrame[[1]]
+  xVar <- ddFrame[[2]]
+  aovtest <- aov(yVar ~ xVar, ddFrame)
+  pValue <- summary(aovtest)[[1]][["Pr(>F)"]][1]
+  return(pValue)
+}
+
+grilleMe()
+
+```
+
+
