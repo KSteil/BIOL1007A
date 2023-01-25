@@ -1,0 +1,56 @@
+---
+title: "Assignment 7"
+author: "Steil"
+date: "2023-01-24"
+output: html_document
+---
+
+Using the built-in starwars data set in the dplyr package, create a new tibble with the following modifications:
+It only includes the species that have more than 1 individual represented in the data set. (hint: first use dplyr to summarize the number of individuals per species in the data frame; then create a vector/tibble of those names; subset the species that are included in that vector)
+
+It only includes the columns that are not of type list (hint: use glimpse to check)
+
+Clean your data set: only include observations/rows that do not have an NA in the height column. Then, use dplyr to print a summary table showing the mean, median, and standard deviation of height for each species.
+
+Create a box plot figure that shows the variation in heights among Star Wars species. Do the values in your summary table line up with the plot? Code so that each box plot (Species) is be filled with a different color. Change your axes labels so that species is capitalized and height is capitalized and shows units (cm). Use the theme_minimal option. Then look into the annotate or geom_text functions and add the text “p=1.2E-0.5” to the top right corner.
+
+```{r}
+library(ggplot2)
+library(ggthemes)
+library(tidyverse)
+
+
+starwarsSpecies <- summarize (group_by(starwars, species), TotalNumber = n())
+starwarsSpeciesAmount <- filter(starwarsSpecies, TotalNumber >1)
+multipleSpeciesNames <- starwarsSpeciesAmount[1]
+speciesVec <- pull(multipleSpeciesNames, species)
+
+
+  ## films, vehicles, and starships are type list
+newStarWars <- select(starwars, -(films:starships))
+newStarWars <- filter(newStarWars, species %in% speciesVec)
+newStarWars <- drop_na(newStarWars)
+
+
+height_table <- newStarWars %>% 
+  group_by(species) %>%
+  summarize(mean_height = mean(height), median_height = median(height), standard_deviation = sd(height), TotalNumber = n())
+#Total number added to show why there wasn't a standard deviation
+print(height_table)
+
+
+
+starwarsPlot <- ggplot(newStarWars, aes(x=species, y=height, fill = species)) +
+  geom_boxplot() +
+  ylab("Height (cm)") +
+  xlab("Species") +
+  theme_minimal() 
+
+starwarsPlot <- starwarsPlot + annotate("text", x = 7, y = 230, label = "p=1.2E-0.5", 
+             hjust = 1, vjust = 1, size = 4)  
+# The values in the summary table do line up with the plot
+  
+
+print(starwarsPlot)
+
+```
