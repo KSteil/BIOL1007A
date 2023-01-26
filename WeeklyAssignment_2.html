@@ -367,30 +367,31 @@ display: none;
 newFunk &lt;- function(mean1 = 10, mean2 = 45){
   control = runif(25)
   treatment = runif(25)
+    #Posted code uses &#39;rep(c(&quot;&quot;,&quot;&quot;), each = n), with n named as an argument to the function. This would allow easy adjustments to the size of the data set.  It also lists the word &#39;control&#39; or &#39;treatment,&#39; which I had misinterpreted.
   Type = c(control, treatment)
   data2 = rnorm(25, mean1, 1.5)
   data3 = rnorm(25, mean2, 2)
   Value = c(data2, data3)
+    # Posted code doesn&#39;t set a variable for data2 and data3, instead it is defined in the &#39;Value&#39; variable
   dFrame&lt;- data.frame(Type, Value)
   return(dFrame)
 }
+  # code still runs with other means
 
 output &lt;- newFunk()
 head(output)</code></pre>
 <pre><code>##        Type     Value
-## 1 0.7164433 10.695968
-## 2 0.4297892 11.736245
-## 3 0.1135909  9.919066
-## 4 0.6671278  9.820751
-## 5 0.4936687 11.935596
-## 6 0.6334441 11.063103</code></pre>
+## 1 0.5328945  8.764528
+## 2 0.9827228 10.629724
+## 3 0.5223672  8.064476
+## 4 0.1085422  8.861276
+## 5 0.3609204  8.471019
+## 6 0.1468034 12.214560</code></pre>
 <pre class="r"><code>stats &lt;- summary(aov(Value ~ Type, data = output))
 print(stats)</code></pre>
-<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)  
-## Type         1   1193  1193.4   4.104 0.0484 *
-## Residuals   48  13958   290.8                 
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Type         1      4     3.9   0.012  0.913
+## Residuals   48  15564   324.3</code></pre>
 </div>
 <div id="question-2" class="section level3">
 <h3>Question 2</h3>
@@ -401,15 +402,17 @@ print(stats)</code></pre>
 
 
 grilleMe &lt;- function(ddFrame = output){
+    # argument for ddFrame is NULL in the posted code
   yVar &lt;- ddFrame[[1]]
   xVar &lt;- ddFrame[[2]]
+    # posted code skips defining these variables, just putting aov(Value ~ Test, data = df)
   aovtest &lt;- aov(yVar ~ xVar, ddFrame)
   pValue &lt;- summary(aovtest)[[1]][[&quot;Pr(&gt;F)&quot;]][1]
   return(pValue)
 }
 
 grilleMe()</code></pre>
-<pre><code>## [1] 0.04835871</code></pre>
+<pre><code>## [1] 0.9125752</code></pre>
 </div>
 
 

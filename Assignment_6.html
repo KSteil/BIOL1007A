@@ -385,7 +385,7 @@ display: none;
   
 iris1 &lt;- filter(iris, Species %in% c(&quot;virginica&quot;, &quot;versicolor&quot;), Sepal.Length &gt; 6, Sepal.Width &gt; 2.5)
  
-  # 56 row (observations) and 5 columns (variables)
+  # 56 rows (observations) and 5 columns (variables)
   
 iris2 &lt;- select (iris1, Species, Sepal.Length, Sepal.Width)
   # 56 rows (observations) and 3 columns (variables)
@@ -452,6 +452,7 @@ print(irisFinal)</code></pre>
 ##   &lt;fct&gt;                   &lt;dbl&gt;             &lt;dbl&gt;      &lt;int&gt;
 ## 1 versicolor               6.48              2.99         17
 ## 2 virginica                6.79              3.06         39</code></pre>
+<pre class="r"><code>  #Second posted solution &#39;arranges&#39; at the end of piping, after summarizing the data</code></pre>
 </div>
 
 

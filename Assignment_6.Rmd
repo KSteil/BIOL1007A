@@ -15,7 +15,7 @@ glimpse(iris)
   
 iris1 <- filter(iris, Species %in% c("virginica", "versicolor"), Sepal.Length > 6, Sepal.Width > 2.5)
  
-  # 56 row (observations) and 5 columns (variables)
+  # 56 rows (observations) and 5 columns (variables)
   
 iris2 <- select (iris1, Species, Sepal.Length, Sepal.Width)
   # 56 rows (observations) and 3 columns (variables)
@@ -52,6 +52,7 @@ irisFinal <- iris %>%
   group_by(Species) %>%
   summarize(averageSepalLength = mean(Sepal.Length), averageSepalWidth = mean(Sepal.Width), sampleSize= n()) 
 print(irisFinal)
+  #Second posted solution 'arranges' at the end of piping, after summarizing the data
   
 
 

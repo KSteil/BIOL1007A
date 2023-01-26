@@ -16,13 +16,16 @@ output: html_document
 newFunk <- function(mean1 = 10, mean2 = 45){
   control = runif(25)
   treatment = runif(25)
+    #Posted code uses 'rep(c("",""), each = n), with n named as an argument to the function. This would allow easy adjustments to the size of the data set.  It also lists the word 'control' or 'treatment,' which I had misinterpreted.
   Type = c(control, treatment)
   data2 = rnorm(25, mean1, 1.5)
   data3 = rnorm(25, mean2, 2)
   Value = c(data2, data3)
+    # Posted code doesn't set a variable for data2 and data3, instead it is defined in the 'Value' variable
   dFrame<- data.frame(Type, Value)
   return(dFrame)
 }
+  # code still runs with other means
 
 output <- newFunk()
 head(output)
@@ -43,8 +46,10 @@ print(stats)
 
 
 grilleMe <- function(ddFrame = output){
+    # argument for ddFrame is NULL in the posted code
   yVar <- ddFrame[[1]]
   xVar <- ddFrame[[2]]
+    # posted code skips defining these variables, just putting aov(Value ~ Test, data = df)
   aovtest <- aov(yVar ~ xVar, ddFrame)
   pValue <- summary(aovtest)[[1]][["Pr(>F)"]][1]
   return(pValue)
