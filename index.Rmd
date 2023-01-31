@@ -30,6 +30,7 @@ Steil ('24) is an undergraduate at Middlebury College, majoring in conservation 
 ## Weekly Assignments  
 [Week 2](WeeklyAssignment_1.html)   
 [Week 3](WeeklyAssignment_2.html)   
-[Week 4](Weekly_Assignment_3.html)   
+[Week 4](Weekly_Assignment_3.html)  
+[Week 5](Weekly_Assignmnet_4.html)   
 
 

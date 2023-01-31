@@ -1,0 +1,103 @@
+Aphid Genotype,X-type presence,Treatment,Block,Survived,Dead,Offspring
+217,cured,control,1,6,4,113
+217,cured,control,1,7,3,115
+217,cured,control,2,3,7,56
+217,cured,control,2,7,3,45
+217,cured,control,2,7,3,84
+217,cured,control,3,8,2,122
+217,cured,control,3,9,1,54
+217,cured,heat shock,1,0,10,NA
+217,cured,heat shock,1,1,9,NA
+217,cured,heat shock,1,2,8,0
+217,cured,heat shock,2,6,4,0
+217,cured,heat shock,2,7,3,0
+217,cured,heat shock,3,0,10,NA
+217,cured,heat shock,3,7,3,0
+217,cured,heat shock,4,10,0,65
+217,Xtype,control,1,6,4,25
+217,Xtype,control,1,8,2,28
+217,Xtype,control,2,6,4,10
+217,Xtype,control,2,7,3,11
+217,Xtype,control,2,7,3,26
+217,Xtype,control,3,8,2,59
+217,Xtype,control,3,9,1,85
+217,Xtype,control,4,6,4,NA
+217,Xtype,control,4,8,2,45
+217,Xtype,heat shock,1,3,7,42
+217,Xtype,heat shock,1,4,6,1
+217,Xtype,heat shock,1,6,4,NA
+217,Xtype,heat shock,2,2,8,54
+217,Xtype,heat shock,2,5,5,43
+217,Xtype,heat shock,3,0,10,NA
+217,Xtype,heat shock,3,1,9,0
+217,Xtype,heat shock,4,9,1,63
+217,Xtype,heat shock,4,10,0,27
+322,cured,control,1,7,3,7
+322,cured,control,1,9,1,14
+322,cured,control,2,5,5,4
+322,cured,control,2,8,2,NA
+322,cured,control,2,9,1,78
+322,cured,control,3,9,1,90
+322,cured,control,3,9,1,96
+322,cured,control,4,5,5,75
+322,cured,control,4,10,0,NA
+322,cured,heat shock,1,3,7,0
+322,cured,heat shock,1,3,7,4
+322,cured,heat shock,1,4,6,0
+322,cured,heat shock,2,6,4,17
+322,cured,heat shock,2,7,3,51
+322,cured,heat shock,3,0,10,NA
+322,cured,heat shock,3,4,6,0
+322,cured,heat shock,4,5,5,0
+322,cured,heat shock,4,9,1,0
+322,Xtype,control,1,5,5,42
+322,Xtype,control,1,7,3,19
+322,Xtype,control,1,9,1,43
+322,Xtype,control,2,8,2,32
+322,Xtype,control,2,9,1,33
+322,Xtype,control,3,9,1,64
+322,Xtype,control,3,10,0,73
+322,Xtype,control,4,5,5,70
+322,Xtype,control,4,8,2,64
+322,Xtype,heat shock,1,0,10,NA
+322,Xtype,heat shock,1,8,2,0
+322,Xtype,heat shock,2,4,6,0
+322,Xtype,heat shock,2,9,1,45
+322,Xtype,heat shock,2,10,0,25
+322,Xtype,heat shock,3,2,8,9
+322,Xtype,heat shock,3,7,3,NA
+322,Xtype,heat shock,4,7,3,0
+322,Xtype,heat shock,4,8,2,91
+324,cured,control,1,6,4,0
+324,cured,control,1,8,2,2
+324,cured,control,1,9,1,47
+324,cured,control,2,9,1,28
+324,cured,control,2,9,1,41
+324,cured,control,3,7,3,16
+324,cured,control,3,9,1,65
+324,cured,control,3,10,0,70
+324,cured,heat shock,1,5,5,0
+324,cured,heat shock,1,8,2,0
+324,cured,heat shock,2,4,6,0
+324,cured,heat shock,2,6,4,0
+324,cured,heat shock,2,7,3,0
+324,cured,heat shock,3,0,10,NA
+324,cured,heat shock,3,5,5,0
+324,cured,heat shock,4,7,3,NA
+324,Xtype,control,1,7,3,1
+324,Xtype,control,1,8,2,20
+324,Xtype,control,1,9,1,15
+324,Xtype,control,2,4,6,37
+324,Xtype,control,2,8,2,16
+324,Xtype,control,3,6,4,NA
+324,Xtype,control,3,9,1,51
+324,Xtype,control,4,9,1,NA
+324,Xtype,heat shock,1,1,9,NA
+324,Xtype,heat shock,1,3,7,24
+324,Xtype,heat shock,2,2,8,NA
+324,Xtype,heat shock,2,4,6,36
+324,Xtype,heat shock,2,5,5,13
+324,Xtype,heat shock,3,1,9,6
+324,Xtype,heat shock,3,5,5,10
+324,Xtype,heat shock,4,7,3,NA
+324,Xtype,heat shock,4,4,6,NA

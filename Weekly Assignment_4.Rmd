@@ -1,0 +1,12 @@
+---
+title: "Weekly Assignment 4"
+author: "Steil"
+date: "2023-01-31"
+output: html_document
+---
+
+Simulate a brand new data frame (the type of data is up to you) and conduct a statistical analysis in R using 2 variables. Create a basic ggplot that goes with the analysis.
+
+```{r}
+
+```
