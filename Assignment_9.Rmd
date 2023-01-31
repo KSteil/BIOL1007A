@@ -1,0 +1,100 @@
+---
+title: "Assignment 9"
+author: "Steil"
+date: "2023-01-30"
+output: html_document
+---
+
+## Question 1
+Using a for loop and an if statement, write a function to calculate the number of zeroes in a numeric vector. Before entering the loop, set up a vector of integers with some zero values. Then, set up a counter variable counter <- 0. Inside the loop, add 1 to counter each time you have a zero in the vector. Finally, use return(counter) for the output.
+
+```{r}
+vec <- round(runif(50))
+counter <- 0
+
+vec[2]
+
+for(i in 1:length(vec)){
+  if (vec[i]== 0) {
+    counter <- counter+1} else
+     {}
+  print(counter)
+}
+
+
+```
+
+## Question 2
+Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.
+
+```{r}
+funktion <- function (x=4, y=5){
+m <- matrix(nrow = x, ncol = y)
+for (i in 1:nrow(m)){
+  for(j in 1:ncol(m)){
+   m[i,j] <- i * j
+  }
+}
+return(m)
+}
+mat<-funktion(x=6, y=7)
+mat
+
+```
+
+
+## Question 3
+Use a for loop to repeat your previous functions from Weekly Assignment 2 (which simulate a data frame and extract a p-value) 100 times. Store the results in a data frame that has 1 column indicating the replicate number and 1 column for the p-values (a total of 2 columns and 100 rows).
+
+```{r}
+######################################
+# FUNCTION: newFunk
+# Input: means of the second column
+# Output: Returns a data frame with a 'type' and 'value' column and 50 rows.
+
+newFunk <- function(mean1 = 10, mean2 = 45){
+  control = runif(25)
+  treatment = runif(25)
+  Type = c(control, treatment)
+  data2 = rnorm(25, mean1, 1.5)
+  data3 = rnorm(25, mean2, 2)
+  Value = c(data2, data3)
+  dFrame <- data.frame(Type, Value)
+  return(dFrame)
+}
+
+output <- newFunk()
+head(output)
+
+#############################  
+# Function: grilleMe
+# Input: data frame with two columns
+# Output: p-value of an ANOVA summary table
+
+
+grilleMe <- function(ddFrame = output){
+    # argument for ddFrame is NULL in the posted code
+  yVar <- ddFrame[[1]]
+  xVar <- ddFrame[[2]]
+    # posted code skips defining these variables, just putting aov(Value ~ Test, data = df)
+  aovtest <- aov(yVar ~ xVar, ddFrame)
+  pValue <- summary(aovtest)[[1]][["Pr(>F)"]][1]
+  return(pValue)
+}
+
+grilleMe()
+
+####################
+pValues <- data.frame()
+
+for (i in 1:100){
+  data1 <- newFunk() 
+  data2 <- grilleMe(data1)
+  goop <- data.frame(i, data2)
+  pValues <- rbind(pValues, goop)
+}
+
+pValues
+
+```
+

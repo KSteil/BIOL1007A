@@ -1,0 +1,31 @@
+---
+title: "Weekly Assignment 3"
+author: "Steil"
+date: "2023-01-26"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+1. Go to Dryad to choose a published paper and data set and reconstruct your own figure. Code a ggplot graph that looks as close to the published figure as you can.
+
+
+![](data/ece39041-fig-0005-m.png)
+
+```{r setup, message=FALSE, error=FALSE}
+
+## Set up libraries
+library(tidyverse)
+library(ggthemes)
+
+
+dryadData <- read.table("data/Keller_etal_2017_JoH_SNPdata_DRYAD.csv", header=TRUE, sep=",", stringsAsFactors = TRUE)
+
+
+
+print(dryadData)
+
+
+
+
+```

@@ -11,9 +11,9 @@
 
 <meta name="author" content="Steil" />
 
-<meta name="date" content="2023-01-19" />
+<meta name="date" content="2023-01-26" />
 
-<title>Weekly Assignment 2</title>
+<title>Weekly Assignment 3</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,70 +350,18 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Weekly Assignment 2</h1>
+<h1 class="title toc-ignore">Weekly Assignment 3</h1>
 <h4 class="author">Steil</h4>
-<h4 class="date">2023-01-19</h4>
+<h4 class="date">2023-01-26</h4>
 
 </div>
 
 
-<div id="question-1" class="section level3">
-<h3>Question 1</h3>
-<pre class="r"><code>######################################
-# FUNCTION: newFunk
-# Input: means of the second column
-# Output: Returns a data frame with a &#39;type&#39; and &#39;value&#39; column and 50 rows.
-
-newFunk &lt;- function(mean1 = 10, mean2 = 45){
-  control = runif(25)
-  treatment = runif(25)
-    #Posted code uses &#39;rep(c(&quot;&quot;,&quot;&quot;), each = n), with n named as an argument to the function. This would allow easy adjustments to the size of the data set.  It also lists the word &#39;control&#39; or &#39;treatment,&#39; which I had misinterpreted.
-  Type = c(control, treatment)
-  data2 = rnorm(25, mean1, 1.5)
-  data3 = rnorm(25, mean2, 2)
-  Value = c(data2, data3)
-    # Posted code doesn&#39;t set a variable for data2 and data3, instead it is defined in the &#39;Value&#39; variable
-  dFrame&lt;- data.frame(Type, Value)
-  return(dFrame)
-}
-  # code still runs with other means
-
-output &lt;- newFunk()
-head(output)</code></pre>
-<pre><code>##        Type     Value
-## 1 0.7841482  9.945479
-## 2 0.3438527 11.480413
-## 3 0.6087839  7.488259
-## 4 0.3094931 10.601717
-## 5 0.7612034  8.702012
-## 6 0.2884675 11.457177</code></pre>
-<pre class="r"><code>stats &lt;- summary(aov(Value ~ Type, data = output))
-print(stats)</code></pre>
-<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
-## Type         1      5    5.31   0.018  0.895
-## Residuals   48  14556  303.25</code></pre>
-</div>
-<div id="question-2" class="section level3">
-<h3>Question 2</h3>
-<pre class="r"><code>###########################  
-# Function: grilleMe
-# Input: data frame with two columns
-# Output: p-value of an ANOVA summary table
-
-
-grilleMe &lt;- function(ddFrame = output){
-    # argument for ddFrame is NULL in the posted code
-  yVar &lt;- ddFrame[[1]]
-  xVar &lt;- ddFrame[[2]]
-    # posted code skips defining these variables, just putting aov(Value ~ Test, data = df)
-  aovtest &lt;- aov(yVar ~ xVar, ddFrame)
-  pValue &lt;- summary(aovtest)[[1]][[&quot;Pr(&gt;F)&quot;]][1]
-  return(pValue)
-}
-
-grilleMe()</code></pre>
-<pre><code>## [1] 0.8952535</code></pre>
-</div>
+<ol style="list-style-type: decimal">
+<li>Go to Dryad to choose a published paper and data set and reconstruct
+your own figure. Code a ggplot graph that looks as close to the
+published figure as you can.</li>
+</ol>
 
 
 

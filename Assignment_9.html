@@ -11,9 +11,9 @@
 
 <meta name="author" content="Steil" />
 
-<meta name="date" content="2023-01-19" />
+<meta name="date" content="2023-01-30" />
 
-<title>Weekly Assignment 2</title>
+<title>Assignment 9</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,15 +350,115 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Weekly Assignment 2</h1>
+<h1 class="title toc-ignore">Assignment 9</h1>
 <h4 class="author">Steil</h4>
-<h4 class="date">2023-01-19</h4>
+<h4 class="date">2023-01-30</h4>
 
 </div>
 
 
-<div id="question-1" class="section level3">
-<h3>Question 1</h3>
+<div id="question-1" class="section level2">
+<h2>Question 1</h2>
+<p>Using a for loop and an if statement, write a function to calculate
+the number of zeroes in a numeric vector. Before entering the loop, set
+up a vector of integers with some zero values. Then, set up a counter
+variable counter &lt;- 0. Inside the loop, add 1 to counter each time
+you have a zero in the vector. Finally, use return(counter) for the
+output.</p>
+<pre class="r"><code>vec &lt;- round(runif(50))
+counter &lt;- 0
+
+vec[2]</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>for(i in 1:length(vec)){
+  if (vec[i]== 0) {
+    counter &lt;- counter+1} else
+     {}
+  print(counter)
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 4
+## [1] 5
+## [1] 5
+## [1] 6
+## [1] 6
+## [1] 6
+## [1] 7
+## [1] 7
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10
+## [1] 10
+## [1] 11
+## [1] 12
+## [1] 13
+## [1] 13
+## [1] 14
+## [1] 14
+## [1] 14
+## [1] 15
+## [1] 16
+## [1] 17
+## [1] 17
+## [1] 18
+## [1] 19
+## [1] 20
+## [1] 21
+## [1] 22
+## [1] 23
+## [1] 24
+## [1] 25
+## [1] 26
+## [1] 27
+## [1] 27
+## [1] 28
+## [1] 29
+## [1] 30
+## [1] 30
+## [1] 31
+## [1] 32
+## [1] 33
+## [1] 33
+## [1] 34
+## [1] 35
+## [1] 35</code></pre>
+</div>
+<div id="question-2" class="section level2">
+<h2>Question 2</h2>
+<p>Write a function that takes as input two integers representing the
+number of rows and columns in a matrix. The output is a matrix of these
+dimensions in which each element is the product of the row number x the
+column number.</p>
+<pre class="r"><code>funktion &lt;- function (x=4, y=5){
+m &lt;- matrix(nrow = x, ncol = y)
+for (i in 1:nrow(m)){
+  for(j in 1:ncol(m)){
+   m[i,j] &lt;- i * j
+  }
+}
+return(m)
+}
+mat&lt;-funktion(x=6, y=7)
+mat</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+## [1,]    1    2    3    4    5    6    7
+## [2,]    2    4    6    8   10   12   14
+## [3,]    3    6    9   12   15   18   21
+## [4,]    4    8   12   16   20   24   28
+## [5,]    5   10   15   20   25   30   35
+## [6,]    6   12   18   24   30   36   42</code></pre>
+</div>
+<div id="question-3" class="section level2">
+<h2>Question 3</h2>
+<p>Use a for loop to repeat your previous functions from Weekly
+Assignment 2 (which simulate a data frame and extract a p-value) 100
+times. Store the results in a data frame that has 1 column indicating
+the replicate number and 1 column for the p-values (a total of 2 columns
+and 100 rows).</p>
 <pre class="r"><code>######################################
 # FUNCTION: newFunk
 # Input: means of the second column
@@ -367,35 +467,24 @@ display: none;
 newFunk &lt;- function(mean1 = 10, mean2 = 45){
   control = runif(25)
   treatment = runif(25)
-    #Posted code uses &#39;rep(c(&quot;&quot;,&quot;&quot;), each = n), with n named as an argument to the function. This would allow easy adjustments to the size of the data set.  It also lists the word &#39;control&#39; or &#39;treatment,&#39; which I had misinterpreted.
   Type = c(control, treatment)
   data2 = rnorm(25, mean1, 1.5)
   data3 = rnorm(25, mean2, 2)
   Value = c(data2, data3)
-    # Posted code doesn&#39;t set a variable for data2 and data3, instead it is defined in the &#39;Value&#39; variable
-  dFrame&lt;- data.frame(Type, Value)
+  dFrame &lt;- data.frame(Type, Value)
   return(dFrame)
 }
-  # code still runs with other means
 
 output &lt;- newFunk()
 head(output)</code></pre>
-<pre><code>##        Type     Value
-## 1 0.7841482  9.945479
-## 2 0.3438527 11.480413
-## 3 0.6087839  7.488259
-## 4 0.3094931 10.601717
-## 5 0.7612034  8.702012
-## 6 0.2884675 11.457177</code></pre>
-<pre class="r"><code>stats &lt;- summary(aov(Value ~ Type, data = output))
-print(stats)</code></pre>
-<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
-## Type         1      5    5.31   0.018  0.895
-## Residuals   48  14556  303.25</code></pre>
-</div>
-<div id="question-2" class="section level3">
-<h3>Question 2</h3>
-<pre class="r"><code>###########################  
+<pre><code>##         Type     Value
+## 1 0.25902375 10.089165
+## 2 0.41427908 10.015999
+## 3 0.23028270  8.904175
+## 4 0.06082236  9.116934
+## 5 0.85958853  8.341354
+## 6 0.53791238 10.620310</code></pre>
+<pre class="r"><code>#############################  
 # Function: grilleMe
 # Input: data frame with two columns
 # Output: p-value of an ANOVA summary table
@@ -412,7 +501,119 @@ grilleMe &lt;- function(ddFrame = output){
 }
 
 grilleMe()</code></pre>
-<pre><code>## [1] 0.8952535</code></pre>
+<pre><code>## [1] 0.4536113</code></pre>
+<pre class="r"><code>####################
+pValues &lt;- data.frame()
+
+for (i in 1:100){
+  data1 &lt;- newFunk() 
+  data2 &lt;- grilleMe(data1)
+  goop &lt;- data.frame(i, data2)
+  pValues &lt;- rbind(pValues, goop)
+}
+
+pValues</code></pre>
+<pre><code>##       i       data2
+## 1     1 0.167179279
+## 2     2 0.876897574
+## 3     3 0.484304901
+## 4     4 0.549063728
+## 5     5 0.010828045
+## 6     6 0.483325432
+## 7     7 0.607924131
+## 8     8 0.789422268
+## 9     9 0.541512133
+## 10   10 0.869041198
+## 11   11 0.320896409
+## 12   12 0.064789476
+## 13   13 0.204309186
+## 14   14 0.552722078
+## 15   15 0.882488628
+## 16   16 0.807994240
+## 17   17 0.739855793
+## 18   18 0.494532926
+## 19   19 0.552539658
+## 20   20 0.788030480
+## 21   21 0.001071436
+## 22   22 0.878973526
+## 23   23 0.208444932
+## 24   24 0.185150363
+## 25   25 0.563627969
+## 26   26 0.557226964
+## 27   27 0.995931200
+## 28   28 0.037194631
+## 29   29 0.276701575
+## 30   30 0.783673864
+## 31   31 0.385390651
+## 32   32 0.363497269
+## 33   33 0.320825181
+## 34   34 0.028294361
+## 35   35 0.892740098
+## 36   36 0.686173891
+## 37   37 0.004644524
+## 38   38 0.419519942
+## 39   39 0.567049526
+## 40   40 0.410266022
+## 41   41 0.185054961
+## 42   42 0.786537421
+## 43   43 0.780636372
+## 44   44 0.408959081
+## 45   45 0.915528513
+## 46   46 0.452122099
+## 47   47 0.156224318
+## 48   48 0.949867391
+## 49   49 0.109941894
+## 50   50 0.600924832
+## 51   51 0.151678509
+## 52   52 0.040920952
+## 53   53 0.161057510
+## 54   54 0.435363701
+## 55   55 0.202379964
+## 56   56 0.386766171
+## 57   57 0.389740990
+## 58   58 0.016893497
+## 59   59 0.412737907
+## 60   60 0.820833656
+## 61   61 0.024271140
+## 62   62 0.421177622
+## 63   63 0.623190928
+## 64   64 0.040916181
+## 65   65 0.485618794
+## 66   66 0.568344855
+## 67   67 0.593544262
+## 68   68 0.172811981
+## 69   69 0.653566518
+## 70   70 0.383276166
+## 71   71 0.686026011
+## 72   72 0.162629063
+## 73   73 0.979173884
+## 74   74 0.450346554
+## 75   75 0.707568278
+## 76   76 0.402865727
+## 77   77 0.070345274
+## 78   78 0.491234303
+## 79   79 0.502226088
+## 80   80 0.817172095
+## 81   81 0.641803288
+## 82   82 0.388657298
+## 83   83 0.580191640
+## 84   84 0.385023019
+## 85   85 0.326796106
+## 86   86 0.125834424
+## 87   87 0.708514568
+## 88   88 0.207422161
+## 89   89 0.775028510
+## 90   90 0.263389751
+## 91   91 0.216965927
+## 92   92 0.875685023
+## 93   93 0.533734401
+## 94   94 0.103409999
+## 95   95 0.211728460
+## 96   96 0.217073481
+## 97   97 0.102899939
+## 98   98 0.651491379
+## 99   99 0.539977436
+## 100 100 0.406534980</code></pre>
 </div>
 
 

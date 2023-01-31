@@ -5,42 +5,44 @@ date: "2023-01-26"
 output: html_document
 ---
 
-```{r}
+### Question 2  
+I used dryad data to reconstruct a publication-quality figure. Copy my code into an Rmd file and annotate what each ggplot line of code is doing, including any arguments. You can use a combination of googling and ‘trial/error coding:’ change the arguments/options to visually see how it affects the plot.  
+
+```{r warning = F, message = F}
 
 ## Set up libraries
 library(tidyverse)
 library(ggthemes)
 
-
 # Data obtained from Veysey Powell and Babbitt 2016: An experimental test of buffer utility as a technique for managing pool-breeding amphibians https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.547rp
 
-dryadData <- read.table("Data/veysey-babbitt_data_amphibians.csv", header=TRUE, sep=",", stringsAsFactors = TRUE)
+dryadData <- read.table("data/veysey-babbitt_data_amphibians2.csv", header=TRUE, sep=",", stringsAsFactors = TRUE)
 
 # glimpse(dryadData)
 # head(dryadData)
 # table(dryadData$species)
 
-dryadData$species<-factor(dryadData$species, labels=c("Spotted Salamander", "Wood Frog")) #creating 'labels' to use for the plot
 
-#class(dryadData$treatment)
+dryadData$species<-factor(dryadData$species, labels=c("Spotted Salamander", "Wood Frog")) #creating 'labels' to use for the plot, label added to the right side
+
+class(dryadData$treatment)
 dryadData$treatment <- factor(dryadData$treatment, 
-            levels=c("Reference",
-                     "100m", "30m"))
-
+                              levels=c("Reference",
+                                       "100m", "30m"))
+  # ordered the bars in the same manor as the official plot
 
 p<- ggplot(data=dryadData, 
-       aes(x=interaction(wetland, treatment), 
-           y=count.total.adults, fill=factor(year))) + geom_bar(position="dodge", stat="identity", color="black") +
-  ylab("Number of breeding adults") +
-  xlab("") +
-  scale_y_continuous(breaks = c(0,100,200,300,400,500)) +
-  scale_x_discrete(labels=c("30 (Ref)", "124 (Ref)", "141 (Ref)", "25 (100m)","39 (100m)","55 (100m)","129 (100m)", "7 (30m)","19 (30m)","20 (30m)","59 (30m)")) +
+           aes(x=interaction(wetland, treatment), # group treatment and wetland
+               y=count.total.adults, fill=factor(year))) + geom_bar(position="dodge", stat="identity", color="black") + # sets the y axis to be the count of total of adults based on year, adds bars
+  ylab("Number of breeding adults") + # label on the y axis 
+  xlab("") + # no label on the x axis
+  scale_y_continuous(breaks = c(0,100,200,300,400,500)) + ## y axis should be broken up by 100s 
+  scale_x_discrete(labels=c("30 (Ref)", "124 (Ref)", "141 (Ref)", "25 (100m)","39 (100m)","55 (100m)","129 (100m)", "7 (30m)","19 (30m)","20 (30m)","59 (30m)")) + # labels for the groups on the x axis
   facet_wrap(~species, nrow=2, strip.position="right") +
-  theme_few() + scale_fill_grey() + 
-  theme(panel.background = element_rect(fill = 'gray94', color = 'black'), legend.position="top",  legend.title= element_blank(), axis.title.y = element_text(size=12, face="bold", colour = "black"), strip.text.y = element_text(size = 10, face="bold", colour = "black")) + 
-  guides(fill=guide_legend(nrow=1,byrow=TRUE)) 
+  theme_few() + scale_fill_grey() + #fills in boxes with grey scale
+  theme(panel.background = element_rect(fill = 'gray94', color = 'black'), legend.position="top",  legend.title= element_blank(), axis.title.y = element_text(size=12, face="bold", colour = "black"), strip.text.y = element_text(size = 10, face="bold", colour = "black")) + #edits the text within the labels, and adds a legend to the top of the graph
+  guides(fill=guide_legend(nrow=1,byrow=TRUE)) # makes the legend only on one line
 
 p
 
 ```
-
