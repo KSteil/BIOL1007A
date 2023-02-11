@@ -1,0 +1,21 @@
+---
+title: "Weekly Assignment 4"
+author: "Steil"
+date: "2023-01-31"
+output: html_document
+---
+
+Simulate a brand new data frame (the type of data is up to you) and conduct a statistical analysis in R using 2 variables. Create a basic ggplot that goes with the analysis.
+
+```{r}
+library(tidyverse)
+var1 <- runif(50)
+var2 <- runif(50)
+ddFrame <- data.frame(var1, var2)
+
+ANOmodel <- aov(var1 ~ var2, data = ddFrame)
+summary(ANOmodel)
+
+qplot(x=var1, y = var2, geom=c("smooth", "point"), method = "lm")
+
+```
